@@ -1,19 +1,8 @@
-# fuddy
+![Fuddy Logo](/src/assets/logo/fuddyPriExt.svg)
 
-## Project setup
-```
-npm install
-```
+## What's FUDDY?
+Fuddy it's a web app where you can make, rate and share your recepies.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Actual State of Fuddy
+Fuddy it's just starting so you need to wait a little more for now.
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

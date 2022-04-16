@@ -1,0 +1,10 @@
+linear-gradient(100.3deg, #543242 -9.85%, #CE3DAE 35.68%, 106.7%)
+#FFE4F1 
+#CE3DAE
+#FFE4F1
+#621651
+#FBF1F1
+Righteos
+Poppins
+Mina
+Roboto
