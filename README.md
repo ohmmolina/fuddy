@@ -4,5 +4,5 @@
 Fuddy it's a web app where you can make, rate and share your recepies.
 
 ## Actual State of Fuddy
-Fuddy it's just starting so you need to wait a little more for now.
+Fuddy it's just starting so you need to wait a little more for now. But if you can't wait, here is a [link](https://fuddy.netlify.app/) where you can see how Fuddy is going.
 
