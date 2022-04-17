@@ -1,5 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Mina&family=Poppins&family=Righteous&family=Roboto&display=swap');
 
+html{
+   font-family: 'Roboto',sans-serif;
+}
+.gradient:hover{
+   outline: none;
+   transition-delay: 10ms;
+   @apply bg-gradient-to-tr from-dark to-pri text-light font-semibold
+}
 
+/* .gradient-b{
+   background-image: linear-gradient(white, white), radial-gradient(circle at bottom left, #FFE4F1 -9.85%, #CE3DAE 35.68%, #543242 106.7%);
+   background-origin: border-box;
+   background-clip: content-box, border-box;
+}
+.gradient-b:hover{
+   transition-delay: 75ms;
+   @apply bg-gradient-to-tr from-light to-dark via-pri
+} */
