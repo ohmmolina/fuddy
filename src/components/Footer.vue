@@ -1,9 +1,9 @@
 <template>
    <footer class="justify-center bg-dark">
       <div class="flex justify-center bg-transparent p-8">
-         <img src="@/assets/social/facebookAlt.svg" alt="" class="w-8 mr-10 bg-transparent">
-         <img src="@/assets/social/twitterAlt.svg" alt="" class="w-8 mr-10 bg-transparent">
-         <img src="@/assets/social/githubAlt.svg" alt="" class="w-8 bg-transparent">
+         <img src="../assets/social/facebookAlt.svg" alt="" class="w-8 mr-10 bg-transparent">
+         <img src="../assets/social/twitterAlt.svg" alt="" class="w-8 mr-10 bg-transparent">
+         <img src="../assets/social/githubAlt.svg" alt="" class="w-8 bg-transparent">
       </div>
       <div class="flex justify-center bg-transparent">
          <ul class="flex justify-evenly w-1/2 mt-4 bg-transparent font-mina text-xs text-alt">
@@ -14,15 +14,8 @@
    </footer>
 </template>
 
-<script>
-export default {
-   name: 'Footer',
-   data(){
-      return{
-         sections: ['About', 'Privacy', 'Terms of Use', 'Jobs']
-      }
-   },
-}
+<script setup>
+const sections = ['About', 'Privacy', 'Terms of Use', 'Jobs'];
 </script>
 
 <style>

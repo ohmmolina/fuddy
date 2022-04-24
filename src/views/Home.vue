@@ -1,15 +1,26 @@
 <template>
-  <Navbar/>
-  <HomeMain/>
-  <Footer/>
+   <Navbar/>
+   <div class="text-center">
+      Bienvenido {{userSave.email}}
+   </div>
 </template>
+
+<script>
+export default {
+   data(){
+      return{
+         userSave: ''
+      }
+   },
+   created(){
+      onAuthStateChanged(auth, (user) => {
+         this.userSave = user;
+      })
+   }}
+</script>
 
 <script setup>
 import Navbar from '../components/Navbar.vue'
-import HomeMain from '../components/HomeMain.vue'
-import Footer from '../components/Footer.vue'
-
-document.title = 'FUDDY - Your kitchen mate'
 
 import { useRestrictStore } from '../stores/restrictedComponents'
 import { useUserStore } from '../stores/user'
@@ -23,11 +34,8 @@ if(userStore.userData){
    restrictStore.setLogin(true)
    restrictStore.setRegister(true)
 }
-
 </script>
 
 <style>
-  body{
-    background-color: #FBF1F1;
-  }
+
 </style>

@@ -1,15 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Mina&family=Poppins&family=Righteous&family=Roboto&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Mina&family=Poppins&family=Righteous&family=Roboto&display=swap');
 
 html{
    font-family: 'Roboto',sans-serif;
 }
-.gradient:hover{
-   outline: none;
-   transition-delay: 10ms;
-   @apply bg-gradient-to-tr from-dark to-pri text-light font-semibold
+.gradientButton{
+   @apply rounded-lg outline outline-offset-[-2px] outline-2 cursor-pointer font-semibold
+}
+.gradientButton:hover{
+   @apply outline-none delay-[10ms] bg-gradient-to-tr from-dark to-pri text-light font-semibold;
+}
+.gradientButton:focus{
+   @apply outline-dark outline-offset-1 bg-gradient-to-tr from-dark to-pri text-light font-semibold;
+}
+.gradientButton:disabled{
+   @apply outline-none bg-none disabled:bg-slate-400 disabled:cursor-not-allowed text-white
 }
 
 /* .gradient-b{
