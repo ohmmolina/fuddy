@@ -1,33 +1,76 @@
 <template>
-   <nav class="flex justify-between items-center mt-2 h-10 w-100 bg-light text-dark">
-         <router-link to = "/">
-            <img src="../assets/logo/fuddyPri.svg" alt="logo" class="relative w-24 ml-6 cursor-pointer">
+   <nav
+   :class="'sticky flex justify-between items-center top-0 py-2 min-h-10 max-h-20 '+navColors">
+      <router-link to = "/">
+         <img
+         :src="'src/assets/logo/'+imgLogo"
+         alt="logo"
+         class="relative w-16 ml-4 cursor-pointer
+         tablet:w-20 tablet:ml-6
+         laptop:w-24 laptop:ml-8
+         desktop:w-28 desktop:ml-12">
+      </router-link>
+      <ul
+      class="flex"
+      v-if="restrictStore.auth">
+         <li v-for="(option, index) in navOptions" :key="index" class="inline-block mr-4 cursor-pointer hover:bg-alt hover:font-bold pl-1 pr-1 rounded-lg">
+            {{ option }}
+         </li>
+      </ul>
+      <div
+      class="flex items-center text-xs laptop:text-md desktop:text-lg"
+      v-if="!restrictStore.auth ^ restrictStore.accessing">
+         <router-link to = "/login">
+            <p 
+            class="mr-1 p-1 cursor-pointer hover:text-pri hover:underline
+            tablet:mr-2
+            laptop:mr-6
+            desktop:mr-8">
+               Log In
+            </p>
          </router-link>
-         <ul class="flex">
-            <li v-for="(option, index) in navOptions" :key="index" class="inline-block mr-4 cursor-pointer hover:bg-alt hover:font-bold pl-1 pr-1 rounded-lg">{{ option }}</li>
-         </ul>
-         <div class="flex items-center">
-            <router-link to = "/login">
+         <router-link to = "/register">
+            <div
+            class="mr-4 p-1 gradientButton text-dark
+            tablet:mr-8 laptop:mr-12 desktop:mr-20">
                <p 
-                  class="mr-4 p-1 cursor-pointer hover:text-pri hover:underline">
-                  Log In
+               class="px-1 tablet:px-2 laptop:px-3 laptop:py-1 desktop:px-4">
+                  Sign Up
                </p>
-            </router-link>
-            <router-link to = "/register">
-               <div
-                  class="mr-6 p-1 gradientButton text-dark">
-                  <p 
-                     class="bg-transparent pl-1 pr-1">
-                     Sign Up
-                  </p>
-               </div>
-            </router-link>   
-         </div>
+            </div>
+         </router-link>   
+      </div>
+      <div
+      :class="display"
+      v-else
+      @click="userStore.logoutUser">
+         <p 
+         class="mr-4 p-1 cursor-pointer hover:text-pri hover:underline">
+            Log Out
+         </p>
+      </div>
   </nav>
+
 </template>
 
 <script setup>
 const navOptions = ['Profile','Recipes','Ingredients'];
+
+import { useUserStore } from '../stores/user'
+import { useRestrictStore } from '../stores/restrictedComponents';
+
+const userStore = useUserStore();
+const restrictStore = useRestrictStore();
+
+var navColors = 'bg-light text-dark';
+var imgLogo = 'fuddyPri.svg';
+var display = '';
+
+if (restrictStore.accessing){
+   navColors = 'text-ligth bg-dark';
+   imgLogo = 'fuddyLight.svg';
+   display = 'invisible';
+}
 </script>
 
 <style>

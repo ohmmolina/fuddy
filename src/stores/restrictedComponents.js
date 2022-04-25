@@ -2,15 +2,15 @@ import {defineStore} from 'pinia'
 
 export const useRestrictStore = defineStore('restrict', {
    state: () => ({
-      register: false,
-      login: false,
+      auth: false,
+      accessing: false,
    }),
    actions:{
-      setRegister(boolean){
-         this.register = boolean;
+      setAuth(boolean){
+         this.auth = boolean;
       },
-      setLogin(boolean){
-         this.login = boolean;
+      setAccessing(boolean){
+         this.accessing = boolean;
       }
    }
 })

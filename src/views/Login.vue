@@ -82,11 +82,11 @@ import {ref} from 'vue';
 import { useRestrictStore } from '../stores/restrictedComponents'
 import { useUserStore } from '../stores/user'
 
-const restrictStore = useRestrictStore()
-restrictStore.setRegister(true)
-restrictStore.setLogin(false)
-
+const restrictStore = useRestrictStore();
 const userStore = useUserStore()
+
+restrictStore.setAuth(false);
+restrictStore.setAccessing(true);
 
 const email = ref('');
 const password = ref('');

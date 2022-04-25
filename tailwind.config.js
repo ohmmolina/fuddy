@@ -5,13 +5,12 @@ module.exports = {
   ],
   media: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1440px',
+    },
     extend: {
-      screens: {
-        sm: '480px',
-        md: '768px',
-        lg: '976px',
-        xl: '1440px',
-      },
       colors:{
         'pri':'#CE3DAE',
         'alt':'#FFE4F1',

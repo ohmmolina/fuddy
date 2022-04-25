@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import { auth } from "../firebaseConfig"
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
 import router from '../router'
+import {} from './restrictedComponents'
 
 export const useUserStore = defineStore("user", {
    state: () => ({
@@ -57,9 +58,11 @@ export const useUserStore = defineStore("user", {
             }
         },
         async logoutUser(){
+            const restrictStore = useRestrictStore()
             try {
                 await signOut(auth);
                 this.userData = null;
+                restrictStore.$reset();
                 router.push('/login');
             } catch (error) {
                 console.log(error);
