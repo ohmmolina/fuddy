@@ -3,7 +3,7 @@
    :class="'sticky flex justify-between items-center top-0 py-2 min-h-10 max-h-20 '+navColors">
       <router-link to = "/">
          <img
-         :src="'src/assets/logo/'+imgLogo"
+         :src="imgLogo"
          alt="logo"
          class="relative w-16 ml-4 cursor-pointer
          tablet:w-20 tablet:ml-6
@@ -55,20 +55,24 @@
 
 <script setup>
 const navOptions = ['Profile','Recipes','Ingredients'];
+const fuddyPry = new URL('../assets/logo/fuddyPri.svg', import.meta.url).href;
+const fuddyLight = new URL('../assets/logo/fuddyLight.svg', import.meta.url).href;
 
-import { useUserStore } from '../stores/user'
+
+
+import { useUserStore } from '../stores/user';
 import { useRestrictStore } from '../stores/restrictedComponents';
 
 const userStore = useUserStore();
 const restrictStore = useRestrictStore();
 
 var navColors = 'bg-light text-dark';
-var imgLogo = 'fuddyPri.svg';
+var imgLogo = fuddyPry;
 var display = '';
 
 if (restrictStore.accessing){
    navColors = 'text-ligth bg-dark';
-   imgLogo = 'fuddyLight.svg';
+   imgLogo = fuddyLight;
    display = 'invisible';
 }
 </script>

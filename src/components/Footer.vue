@@ -1,9 +1,10 @@
 <template>
-   <footer class="justify-center bg-dark">
+   <footer class="justify-center bg-dark">  
       <div class="flex justify-center pt-2">
-         <img v-for="(logo, index) in social" :key="index"
-            :src="'src/assets/social/'+logo" 
-            alt="" 
+         <img v-for="logo in social"
+            :key="logo.id"
+            :src="logo.url()" 
+            :alt="logo.name" 
             class="w-6 mx-4 pt-1 cursor-pointer
             laptop:w-8 laptop:mx-10 laptop:pt-4
             desktop:w-8 desktop:mx-10 desktop:pt-6">
@@ -27,8 +28,34 @@
 </template>
 
 <script setup>
-const social = ['facebookAlt.svg','twitterAlt.svg','githubAlt.svg']
+const getUrl = name => new URL(`../assets/social/${name}.svg`, import.meta.url)
+
+const social = [
+   {
+      id:1,
+      name:'facebookAlt',
+      url: function(){
+         return getUrl(this.name).href
+      }
+   },
+   {
+      id:2,
+      name:'twitterAlt',
+      url: function(){
+         return getUrl(this.name).href
+      }
+   },
+   {
+      id:3,
+      name:'githubAlt',
+      url: function(){
+         return getUrl(this.name).href
+      }
+   }
+]
+
 const sections = ['About', 'Privacy', 'Terms', 'Jobs'];
+
 </script>
 
 <style>
